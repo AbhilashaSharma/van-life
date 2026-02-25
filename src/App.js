@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home.jsx";
-import About from "./pages/About.jsx";
-import Vans from "./pages/Van/Vans.jsx";
-import VansDetails from "./pages/Van/VansDetails.jsx";
-import Dashboard from "./pages/Host/Dashboard.jsx";
-import Layout from "./components/Layout.jsx";
-import Income from "./pages/Host/Income.jsx";
-import Reviews from "./pages/Host/Reviews.jsx";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Vans from "./pages/Van/Vans";
+import VansDetails from "./pages/Van/VansDetails";
+import Dashboard from "./pages/Host/Dashboard";
+import Layout from "./components/Layout";
+import Income from "./pages/Host/Income";
+import Reviews from "./pages/Host/Reviews";
 import "./server.js";
-import HostLayout from "./pages/Host/HostLayout.jsx";
+import HostLayout from "./pages/Host/HostLayout";
 
 function App() {
   return (
