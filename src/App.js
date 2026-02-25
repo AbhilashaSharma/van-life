@@ -4,6 +4,7 @@ import About from "./Components/About";
 import Home from "./Components/Home";
 import Vans from "./Components/Vans";
 import "./server.js";
+import VansDetails from "./Components/VansDetails.jsx";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/vans" element={<Vans />} />
+        <Route path="/vans/:id" element={<VansDetails />} />
       </Routes>
     </BrowserRouter>
   );
