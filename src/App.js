@@ -5,7 +5,7 @@ import About from "./pages/About";
 import Vans from "./pages/Van/Vans";
 import VansDetails from "./pages/Van/VansDetails";
 import Dashboard from "./pages/Host/Dashboard";
-import Layout from "./components/Layout";
+// import Layout from "./components/Layout";
 import Income from "./pages/Host/Income";
 import Reviews from "./pages/Host/Reviews";
 import "./server.js";
@@ -15,17 +15,16 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="vans" element={<Vans />} />
-          <Route path="vans/:id" element={<VansDetails />} />
+        {/* <Route path="/" element={<Layout />}> */}
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="vans" element={<Vans />} />
+        <Route path="vans/:id" element={<VansDetails />} />
 
-          <Route path="host" element={<HostLayout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="income" element={<Income />} />
-            <Route path="reviews" element={<Reviews />} />
-          </Route>
+        <Route path="host" element={<HostLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="income" element={<Income />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
       </Routes>
     </BrowserRouter>
