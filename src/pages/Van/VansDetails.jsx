@@ -1,17 +1,27 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 function VansDetails() {
   const params = useParams();
+  const location = useLocation();
   const [van, setVan] = useState(null);
-
+  const ALLVANS = "all";
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
       .then((res) => res.json())
       .then((data) => setVan(data.vans));
   }, [params.id]);
+  const search = location.state?.search || "";
+  const type =
+    location.state.type?.charAt(0).toUpperCase() +
+      location.state.type?.slice(1) || "all";
+
+  // const typeSearch = search.split("?")[1].split("=")[1];
   return (
     <div className="van-detail-container">
+      <Link to={`..${search}`} relative="path" className="back-button">
+        &larr; <span>Back to {type} Vans</span>
+      </Link>
       {van ? (
         <div className="van-detail">
           <img src={van.imageUrl} alt={van.name} />

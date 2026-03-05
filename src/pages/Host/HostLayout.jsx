@@ -9,6 +9,7 @@ export default function HostLayout() {
   };
   return (
     <>
+      <h1>This page is under construction</h1>
       <nav className="host-nav">
         <NavLink
           to="."
