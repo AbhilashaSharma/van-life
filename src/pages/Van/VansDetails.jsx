@@ -5,7 +5,6 @@ function VansDetails() {
   const params = useParams();
   const location = useLocation();
   const [van, setVan] = useState(null);
-  const ALLVANS = "all";
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
       .then((res) => res.json())
