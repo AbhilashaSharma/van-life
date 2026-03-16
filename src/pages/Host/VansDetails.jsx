@@ -1,23 +1,20 @@
-import { useState, useEffect } from "react";
-import { useParams, Link, Outlet, NavLink } from "react-router-dom";
-
-function VansDetails() {
+import { Link, Outlet, NavLink, useLoaderData } from "react-router-dom";
+import { getVan } from "../../api";
+import { requireAuth } from "../../utils";
+export async function loader({ params, request }) {
+  await requireAuth({ request });
+  return getVan(params.id);
+}
+export default function VansDetails() {
   const activeStyle = {
     fontWeight: "bold",
     textDecoration: "underline",
     color: "#161616",
   };
-  const { id } = useParams();
-  const [currentVan, setCurrentVan] = useState(null);
-  useEffect(() => {
-    fetch(`/api/host/vans/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCurrentVan(data.vans);
-      });
-  });
 
-  return currentVan ? (
+  const currentVan = useLoaderData();
+
+  return (
     <section>
       <Link to=".." relative="path" className="back-button">
         &larr; <span>Back to all vans</span>
@@ -58,9 +55,5 @@ function VansDetails() {
         <Outlet context={{ currentVan }} />
       </div>
     </section>
-  ) : (
-    <h2>Loading...</h2>
   );
 }
-
-export default VansDetails;
